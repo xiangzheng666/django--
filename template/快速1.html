@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #9badd5;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #3296fd
+;
+            top:0;
+            left:0;
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #bfd5ff;
+
+        }
+        .body-img{
+            width: 100%;
+            height: 250px;
+            padding-top: 24px;
+            border: 1px solid #3296fd
+;
+
+        }
+        .body-content{
+            text-align: center;
+
+        }
+        .body_c{
+            text-align: center;
+            width: 1016px;
+
+            {#line-height: 50px;#}
+            margin: 0 auto;
+            padding-top: 120px;
+            padding-bottom: 100px;
+            padding-left: 330px;
+
+        }
+        .input1{
+            width: 500px;
+            height: 39px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #3296fd
+;
+        }
+        .b1{
+            width: 100px;
+            height:39px;
+            background-color: #3296fd
+;
+            border: 1px solid #3296fd
+;
+            float:left;
+
+        }
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+        }
+        .chart{
+            background-color: #a5b8e0;
+            float: right;
+            width: 100%;
+        }
+        .table-body{
+            width: 50%;
+            height: 300px;
+            font-size: 20px;
+            padding-top: 50px;
+            float: right;
+
+            text-align: right;
+        }
+        .bootom-o{
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            bottom:0;
+            left:0;
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+  
+        <a class="bb" href="/game/one/">快速查询</a>
+        <a class="b" href="/game/two/">单个查询</a>
+        <a class="b" href="/game/three">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all">
+
+    <div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+    <div class="body-content">
+        <div class="body_c">
+        {% load static %}
+            <form action="/game/one/1" method="get" enctype="multipart/form-data">{% csrf_token %}
+                <input name=word class="input1"><button class="b1" type="submit" title="1.以 ';' 为一个企业一年的信息终止条件
+                                    2.信息结束最后不要 ';'
+                                    3,接收不全信息，支持自动补充
+                                    4.属性与属性值不要有空格">快速查询</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="body-content1">
+        Welcome to our search
+    </div>
+
+    <div class="div1" style="padding-top: 60px;">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.js"></script></div>
+
+
+    <div class="chart">
+
+    <div id="chart1" style="width: 500px;height:500px;float: left;padding-bottom: 30px;padding-left: 40px">
+
+    </div>
+
+    <div   class="table-body" >
+            <table style="border: #9badd5 0.5px">
+			<colgroup><col style="width: 20%;" /><col /></colgroup>
+			<tr><th style="width: 100px">序号</th><th style="width: 100px">公司ID</th><th style="width: 100px">结果</th></tr>
+                  <tr><td>1</td><td>{{list1.0}}</td><td>{{list2.0}}</td></tr>
+                  <tr><td>2</td><td>{{list1.1}}</td><td>{{list2.1}}</td></tr>
+                  <tr><td>3</td><td>{{list1.2}}</td><td>{{list2.2}}</td></tr>
+                  <tr><td>4</td><td>{{list1.3}}</td><td>{{list2.3}}</td></tr>
+				  <tr><td>5</td><td>{{list1.4}}</td><td>{{list2.4}}</td></tr>
+				  <tr><td>6</td><td>{{list1.5}}</td><td>{{list2.5}}</td></tr>
+				  <tr><td>7</td><td>{{list1.6}}</td><td>{{list2.6}}</td></tr>
+				  <tr><td>8</td><td>{{list1.7}}</td><td>{{list2.7}}</td></tr>
+				  <tr><td>9</td><td>{{list1.8}}</td><td>{{list2.8}}</td></tr>
+				  <tr><td>10</td><td>{{list1.9}}</td><td>{{list2.9}}</td></tr>
+				  <tr><td>11</td><td>{{list1.10}}</td><td>{{list2.10}}</td></tr>
+				  <tr><td>12</td><td>{{list1.11}}</td><td>{{list2.11}}</td></tr>
+			</table>
+</div>
+
+</div>
+
+    <script>
+        var mychart1=echarts.init(document.getElementById('chart1'),'light');
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '僵尸企业查询结果统计'
+            },
+            tooltip: {},
+            legend: {
+                data:['僵尸企业','非僵尸企业']
+            },
+            xAxis: {
+                data: ['僵尸企业','非僵尸企业']
+            },
+            yAxis: {},
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: [{{x}},{{y}}],
+                itemStyle:{
+                    normal:{
+                      color:function (data) {
+                        const colorArr  =['#43a1f2','#f2df45']
+                          return colorArr[data.dataIndex]
+                      }
+                    }
+                }
+            }]
+        };
+
+        // 使用指定的配置项和数据显示条形图表1。
+        mychart1.setOption(option);
+</script>
+
+
+</div>
+
+<div class="bootom-o" >
+
+</div>
+
+</body>
+</html>

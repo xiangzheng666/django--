@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #9badd5;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #3296fd;
+            top:0;
+            left:0;
+
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #9badd5;
+
+        }
+        .body-img{
+            width: 100%;
+            height: 250px;
+            padding-top: 24px;
+            border: 1px solid #4f99eb;
+
+        }
+        .body-content{
+            text-align: center;
+
+
+        }
+        .body_c{
+            text-align: center;
+            width: 1016px;
+
+            {#line-height: 50px;#}
+            margin: 0 auto;
+            padding-top: 120px;
+            padding-bottom: 100px;
+            padding-left: 330px;
+        }
+        .input1{
+            width: 500px;
+            height: 39px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #3296fd;
+        }
+        .b1{
+            width: 100px;
+            height:39px;
+            background-color: #3296fd;
+            border: 1px solid #3296fd;
+            float:left;
+
+        }
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+        }
+        .la{
+            position: fixed;
+            top:60px;
+            width: 120px;
+            height: 500px;
+            margin-left: 20px;
+            border: 3px solid #3296fd;
+            background-color: black;
+            color: #3296fd;
+            left: 0;
+        }
+    </style>
+
+
+</head >
+
+
+<body style="">
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+    
+        <a class="bb" href="/game/one/">快速查询</a>
+        <a class="b" href="/game/two/">单个查询</a>
+        <a class="b" href="/game/three">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all">
+
+    <div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+    <div class="body-content">
+        <div class="body_c">
+            {% load static %}
+            <form action="/game/one/1" method="get" enctype="multipart/form-data">{% csrf_token %}
+                <input name=word class="input1"><button class="b1" type="submit" title="1.以 ';' 为一个企业一年的信息终止条件
+                                    2.信息结束最后不要 ';'
+                                    3,接收不全信息，支持自动补充
+                                    4.属性与属性值不要有空格">快速查询</button>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="body-content1" style="padding-bottom: 100px">
+        Welcome to our search
+    </div>
+
+<div style="padding-left: 200px;padding-right: 0px;padding-top: 10px">
+
+<div style="color: #070919;border: 1px solid #43a1f2;width: 80%;padding-top:50px;padding-left: 50px;padding-right: 50px">
+    <div style="">
+        <img src="{%static '3.png'%}" style="padding-top: 0px">说明：
+
+        <div style="padding-left: 50px">
+<p> 1.以 ';' 为一个企业一年的信息终止条件;
+    2.信息结束最后不要 ';';
+    3,接收不全信息，支持自动补充;
+    4.属性与属性值不要有空格 </p>
+        </div>
+
+    </div>
+    <img src="{%static '3.png'%}" style="padding-top: 10px">实例(可粘贴测试)
+        <hr>
+<div style="padding-left: 50px">
+<p>
+  ID78 专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润727, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额27 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;  </p>
+<p>ID79专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润-728837, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额0 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;  </p>
+<p>ID778 专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润727, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额27 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;</p>
+<p> ID89专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润-728837, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额0 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;</p>
+<p> ID778 专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润727, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额27 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;</p>
+<p> ID77859专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润-728837, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额0 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;</p>
+<p> ID77858 专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润727, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额27 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378;</p>
+<p> ID77589专利0,主营业务收入74257,从业人数2752,企业类型集体所有制企业,债权融资成本2572,债权融资额度72752,
+  内部融资和贸易融资成本2782, 内部融资和贸易融资额度272, 净利润-728837, 利润总额783, 区域福建, 商标0 所有者权益合计422,
+  控制人持股比例0.7 控制人类型企业法人, 注册时间2008, 注册资本257 纳税总额0 股权融资成本287 股权融资额度272 营业总收入278
+  著作权0 行业社区服务 负债总额5737 资产总额37378 项目融资和政策融资成本3783 项目融资和政策融资额度378378 </p>
+</div>
+</div>
+ </div>
+</div>
+
+
+</body>
+</html>
+

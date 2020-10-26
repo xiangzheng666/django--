@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        .thumbnail
+{
+
+	width:350px;
+	height:25px;
+	margin:5px;
+}
+input[type=file] {
+  background-color: white;
+  color: black;
+}
+.button
+{
+width:600px;
+height:33px;
+border-radius:3px;
+border-width:0px;
+background:#1E90FF;
+cursor:pointer;
+outline:none;
+font-family:Microsoft YaHei;
+color:white;
+font-size:17px;
+}
+h1 {text-align:center}
+h3 {text-align:center color='red'}
+hr {color:'black'}
+body {background:white}
+.div-a{ float:left;width:49%;border:1px solid #F00;height:500px; display:inline;}
+.div-b{ float:left;width:49%;border:1px solid #000;height:500px; display:inline;}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.a-upload {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #9badd5;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #3296fd;
+            top:0;
+            left:0;
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #bfd5ff;
+        }
+        .body-img{
+            width: 100%;
+            height: 250px;
+            padding-top: 24px;
+            border: 1px solid #3296fd;
+
+        }
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+            padding-bottom: 60px;
+            padding-top: 70px;
+        }
+        .head-but{
+            float: right;
+            width: auto;
+            height: auto;
+            padding-top: 30px;
+            padding-right: 50px;
+            padding-bottom: 40px;
+
+        }
+        .but{
+            height: 30px;
+            background-color: #3296fd;
+            width: 100px;
+            padding-left: 0px;
+        }
+        .mm{
+            float: left;
+            padding-bottom: 10px;
+            font-size: 33px;
+        }
+        .fenx{
+            float: right;
+            padding-right: 50px;
+            padding-top: 40px;
+            padding-bottom: 70px;
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+      
+        <a class="b" href="/game/one/">快速查询</a>
+        <a class="b" href="/game/two/">单个查询</a>
+        <a class="bb" href="/game/three/">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all">
+
+    <div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+    <div class="body-content1">
+        Welcome to our search
+    </div>
+
+
+    <hr >
+    <form action="/game/three/1" method="post" enctype="multipart/form-data">{% csrf_token %}
+        <table style='width:100%'>
+            <tr>
+                <td>
+                    <span class="a-upload" style="font-size:25px;color:black" class="thumbnail" >baseinfo_sum ......{{an}}</span>
+                    <input type="file" class="file" name="f1" accept=".csv">
+                </td>
+                <td>
+                    <span style="font-size:25px;color:black" class="a-upload">knowledge............{{bn}}</span>
+                    <input type="file" class="file" name="f2" accept=".csv">
+                </td>
+            <tr>
+                <td>
+                    <span style="font-size:25px;color:black" class="a-upload">money_report......{{cn}}</span>
+                    <input type="file" class="file" name="f3" accept=".csv">
+                </td>
+                <td>
+                    <span style="font-size:25px;color:black" class="a-upload">year_report. .........{{dn}} </span>
+                    <input type="file" class="file" name="f4" accept=".csv">
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <div class="head-but"><input type="submit" class="but" value="点击提交" /></div>
+
+                </td>
+            </tr>
+        </table>
+    </form>
+
+     <hr >
+
+</div>
+
+
+<script type="text/javascript">
+    function f1(){
+	a="分析中"
+	b="请稍后"
+	document.getElementById('aaa').innerHTML = a
+	document.getElementById('bbb').innerHTML = b
+
+		}
+</script>
+
+<div style="height: 80px;width: 100%">
+
+<div class="mm" >提交状态   {{jul}}</div>
+
+
+<div class="fenx">
+    <form action="/game/three/2" enctype="multipart/form-data" onsubmit="f1();">
+        {% csrf_token %}
+        <input id="" class="but" type="submit" value="开始分析" style="width:105px;padding-top: 5px">
+    </form>
+</div>
+
+</div>
+
+<div style="text-align: center;color: #9badd5;padding-top: 40px">
+<p id="aaa"></p>
+<p id="bbb"></p>
+</div>
+</body>
+</html>

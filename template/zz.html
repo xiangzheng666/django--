@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #9badd5;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #4f99eb
+;
+            top:0;
+            left:0;
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #bfd5ff
+;
+        }
+        .body-img{
+            width: 100%;
+            height: 250px;
+            padding-top: 24px;
+            border: 1px solid #3296fd
+;
+
+        }
+        .body-content{
+            text-align: center;
+
+        }
+        .body_c{
+            text-align: center;
+            width: 1016px;
+
+            {#line-height: 50px;#}
+            margin: 0 auto;
+            padding-top: 120px;
+            padding-bottom: 100px;
+            padding-left: 330px;
+
+        }
+        .input1{
+            width: 500px;
+            height: 39px;
+            float: left;
+            box-sizing: border-box;
+            border: 1px solid #3296fd
+;
+        }
+        .b1{
+            width: 100px;
+            height:39px;
+            background-color: #3296fd
+;
+            border: 1px solid #3296fd
+;
+            float:left;
+
+        }
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+            padding-top: 100px;
+        }
+        .chart{
+            background-color: #a5b8e0;
+            float: right;
+            width: 100%;
+        }
+        .table-body{
+            width: 50%;
+            height: 300px;
+            font-size: 20px;
+            padding-top: 50px;
+            float: right;
+
+            text-align: right;
+        }
+        .bootom-o{
+            position: fixed;
+            width: 100%;
+            height: 50px;
+            bottom:0;
+            left:0;
+
+        }
+        p{
+            line-height: 40px;
+        }
+    </style>
+
+
+</head>
+
+
+<body >
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+        <a class="bb" href="/game/zeros/">情况介绍</a>
+        <a class="b" href="/game/one/">快速查询</a>
+        <a class="b" href="/game/two/">单个查询</a>
+        <a class="b" href="/game/three">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all">
+
+    <div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+
+    <div class="body-content1">
+        僵尸企业介绍
+</div>
+<div style="padding-left: 200px;padding-right: 0px;padding-top: 50px;padding-bottom: 100px">
+
+<div style="color: #070919;border: 1px solid #43a1f2;width: 80%;padding-bottom:100px;padding-top:50px;padding-left: 50px;padding-right: 50px">
+    <div style="padding-bottom: 100px">
+        <img src="{%static '3.png'%}" style="padding-top: 0px">僵尸企业描述：
+
+        <div style="padding-left: 50px">
+<p> 僵尸企业是指缺乏盈利能力却能够以低于市场最优利率成本获得信贷资源，
+依靠外界输血而缺乏自生能力的企业。如果不能够及时处置，我国经济动能转换以及高质量发展就无法保障，去杠杆工作的受阻将加大系统性金融风险。
+ 僵尸企业是指已停产、半停产、连年亏损、资不抵债，主要靠政府补贴和银行续贷维持经营的企业。</p>
+        </div>
+
+    </div>
+    <img src="{%static '3.png'%}" style="padding-top: 10px">危害
+        <hr>
+<div style="padding-left: 50px;padding-bottom: 50px">
+<p>
+
+<p >1.浪费社会资源。"僵尸企业"需要银行和政府财政不断输血，大量土地、资金、原材料、劳动力等社会资源被无效占用，造成生产要素配置扭曲，社会资源整体利用效率降低。
+</p>
+<p>2.扰乱市场秩序。"僵尸企业"抢占了其他健康企业的资源与机会，缺失主动创新、提高效率的动力，还会产生劣币驱逐良币的效应，破坏了市场优胜劣汰的机制和公平竞争的环境。
+</p>
+<p>3.脱离资产监管。"僵尸企业"长期脱离监管机构的监管，资产质量差，经常出现产权归属不清、管理混乱的问题，资产管理基本处于失控状态，国有资产保值增值责任无从落实。
+</p>
+<p>4.损害职工权益。"僵尸企业"失去收入来源的情况下，拖欠职工工资、社保情况严重，职工的切身利益得不到保障，工作积极性不高，严重影响职工队伍稳定。
+</p>
+<p>5.形成金融风险。"僵尸企业"不具备偿贷能力，也没有足够的资产偿还贷款，造成银行不良贷款高速增加，甚至可能导致系统性金融风险。
+</p>
+    </p>
+</div>
+</div>
+ </div>
+
+<div class="bootom-o" >
+
+</div>
+
+</body>
+</html>
