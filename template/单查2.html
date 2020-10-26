@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #a5b8e0;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #3296fd;
+            top:0;
+            left:0;
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #9badd5;
+        }
+
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+            padding-top: 70px;
+        }
+        .body-content2{
+            font-family: "Microsoft YaHei UI";
+            font-size: 17px;
+            padding-top: 70px;
+            padding-right: 10px;
+        }
+        .head-but{
+            width: auto;
+            height: auto;
+            padding-top: 0px;
+            padding-right: 50px;
+            padding-bottom: 40px;
+        }
+        .but{
+            height: 30px;
+            background-color: #3296fd;
+            width: 100px;
+            padding-right: 0px;
+        }
+        .body-img{
+            width: 100%;
+            height: 240px;
+            padding-top: 13px;
+            border: 1px solid #3296fd;
+
+        }
+        .thumbnail{
+            width: auto;
+            height: 28px;
+            color: #3296fd;
+            border: 1px solid #3296fd;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+
+        <a class="b" href="/game/one/">快速查询</a>
+        <a class="bb" href="/game/two/">单个查询</a>
+        <a class="b" href="/game/three/">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all">
+
+<div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+    <div class="body-content1">
+        Welcome to our search
+    </div>
+<div style="padding-top:50px">
+请输入企业年平均数据，单位￥/元
+</div>
+<hr>
+
+    <div class="body-content2">
+        <form action="/game/two/1" method="get" enctype="multipart/form-data">{% csrf_token %}
+        <table style='width:100%;text-align: right;height: 20px;color: #070919'>
+    <tr >
+      <td>
+	  <label for="b" >专利</label>
+	  <input type='text'  title='请选择下面的内容' class="thumbnail" name="b" oninput="value=value.replace(/[^\d]/g,'')" list="data-lista">
+	  <datalist id = "data-lista">
+        <option>无   0</option>
+        <option>有   1</option>
+      </datalist>
+	  </td>
+	  <td>
+    <label>
+      <span title='单位￥/元'>主营业务收入</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="c" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span title='单位/个'>从业人数</span>
+	  <input title='单位/个' type='text' class="thumbnail" name="d" >
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+    <label>
+      <span title='请选择下面的内容'>企业类型</span>
+	  <input title='单位￥/元' title='请选择下面的内容' type='text' class="thumbnail" name="e" oninput="value=value.replace(/[^\d]/g,'')" list = "data-list4">
+	  <datalist id = "data-list4">
+        <option>农民专业合作社   0</option>
+        <option>集体所有制企业   1</option>
+        <option>股份有限公司     3</option>
+        <option>有限责任公司     4</option>
+        <option>合伙企业         5</option>
+    </datalist>
+    </label>
+	</td>
+	<td>
+    <label>
+      <span>债权融资成本</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="f" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>债权融资额度</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="g" >
+    </label>
+	</td>
+	</tr>
+    <tr>
+	<td>
+	<label>
+      <span>内部融资和贸易融资成本</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="h" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>内部融资和贸易融资额度</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="i" >
+    </label>
+	</td>
+	<td>
+    <label>
+      <span>净利润</span >
+	  <input type='text' title='单位￥/元' class="thumbnail" name="j"  placeholder="必填" required="required">
+    </label>
+	</td>
+	</tr>
+    <tr>
+	<td>
+	<label>
+      <span>利润总额</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="k" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>区域</span>
+	  <input type='text' title='请选择下面的内容' class="thumbnail" name="l" oninput="value=value.replace(/[^\d]/g,'')"  list = "data-list1">
+	  <datalist id = "data-list1">
+        <option>福建   0</option>
+        <option>广东   1</option>
+        <option>江西   2</option>
+        <option>山东   3</option>
+        <option>广西   4</option>
+        <option>湖南   5</option>
+        <option>湖北   6</option>
+    </datalist>
+    </label>
+	</td>
+	<td>
+    <label>
+      <span>商标</span>
+	  <input type='text' title='请选择下面的内容' class="thumbnail" name="m" oninput="value=value.replace(/[^\d]/g,'')" list="data-listb">
+	  <datalist id = "data-listb">
+        <option>无   0</option>
+        <option>有   1</option>
+      </datalist>
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<label>
+      <span>所有者权益合计</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="n" >
+    </label>
+	</td>
+	<td>
+    <label>
+      <span>控制人持股比例</span>
+	  <input type='text' title='请输入小数例如：0.7'class="thumbnail" name="o" >
+    </label>
+    </td>
+	<td>
+	<label>
+      <span>控制人类型</span>
+	  <input type='text' title='请选择下面的内容' class="thumbnail" name="p" oninput="value=value.replace(/[^\d]/g,'')" list = "data-list2">
+	  <datalist id = "data-list2">
+        <option>企业法人 0</option>
+        <option>自然人   1</option>
+    </datalist>
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<label>
+      <span>注册时间</span>
+	  <input type='text' title='请输入年份例如2008'class="thumbnail" name="q" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>注册资本</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="r" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>纳税总额</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="s"  placeholder="必填" required="required">
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<label>
+      <span>股权融资成本</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="t" >
+    </label>
+	</td>
+    <td>
+	<label>
+      <span>股权融资额度</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="u" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>营业总收入</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="v" >
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<label>
+      <span>著作权</span>
+	  <input type='text' title='请选择下面的内容' class="thumbnail" name="w" oninput="value=value.replace(/[^\d]/g,'')" list="data-listc">
+	  <datalist id = "data-listc">
+        <option>无   0</option>
+        <option>有   1</option>
+      </datalist>
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>行业</span>
+	  <input type='text' title='请选择下面的内容' class="thumbnail" name="x" oninput="value=value.replace(/[^\d]/g,'')" list = "data-list3">
+	  <datalist id = "data-list3">
+        <option>交通运输业 0</option>
+        <option>服务业     1</option>
+        <option>工业       2</option>
+        <option>社区服务   3</option>
+        <option>零售业     4</option>
+		<option>商业服务业 5</option>
+    </datalist>
+	</label>
+	</td>
+	<td>
+	<label>
+      <span>负债总额</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="y" >
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<label>
+      <span>资产总额</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="z" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>项目融资和政策融资成本</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="aa" >
+    </label>
+	</td>
+	<td>
+	<label>
+      <span>项目融资和政策融资额度</span>
+	  <input type='text' title='单位￥/元' class="thumbnail" name="ab" >
+    </label>
+	</td>
+	</tr>
+	<tr>
+	<td colspan='3'>
+	<div style="padding-top:10px;padding-bottom:40px;"></div>
+        <hr>
+        <div style="padding-left:0px;padding-top:10px;padding-bottom:10px;"></div>
+    <div class="head-but">
+	<button class="but" type="submit">一键查询</button>
+    </div>
+	</td>
+	</tr>
+</table>
+</form>
+
+    </div>
+
+</div>
+
+
+<div>
+
+</div>
+    <img src="" id="l" style="padding-left:300px;width: 150px;height: 150px;">
+
+    <div style="float: right;padding-right:300px">
+        <h1 id="hh"  style='text-align: center;color:#4f99eb;padding-right: 140px' ;value={{ out3}}>  {{out3}}</h1>
+<b>模型适应度  {{m}}%</b>
+<hr>
+<b>准确程度  {{mm}}</b>
+        <hr>
+<b >总用时  {{time}}秒</b></div>
+
+</div>
+<script>
+    a=document.getElementById('hh').innerText
+    b='僵尸企业'
+    c='非僵尸企业'
+    if(a==b){
+                            document.getElementById('l').src="{%static 'bad.jpg'%}"
+
+                          }
+    if(a==c){
+                            document.getElementById('l').src="{%static 'good.jpg'%}"
+                          }
+
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.js"></script>
+<div style='height:200px;width:100px'>
+ <script>
+        var mychart2=echarts.init(document.getElementById('chart1'),'light');
+        var option2 = {
+            title: {
+                text: '.'
+            },
+            tooltip: {},
+
+
+            series: [{
+                type: 'pie',
+                data: [
+                    {value:1, name:"{{ out1 }}"},
+                ],
+                itemStyle:{
+                    normal:{
+                      color:function (data) {
+                          if(data.name=='僵尸企业'){
+                              a  =['#3e56ff','#f2df45']
+                          }
+                          else{
+                              a  =['#f2df45','#3e56ff']
+                          }
+                          const colorArr  =a
+                          return colorArr[data.dataIndex]
+                      }
+                    }
+                }
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        mychart2.setOption(option2);
+
+
+</script>
+</div>
+<hr>
+
+
+</body>
+</html>

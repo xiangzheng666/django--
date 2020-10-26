@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="shortcut icon" href="{%static 'tick.ico' %}" />
+    <title>僵尸企业查询</title>
+
+    <style>
+        .thumbnail
+{
+	width:350px;
+	height:25px;
+	margin:5px;
+}
+input[type=file] {
+  background-color: white;
+  color: black;
+}
+.table-head{}
+.table-body{overflow-y:scroll;}
+.table-head table,.table-body table{width:100%;}
+.table-body table tr:nth-child(2n+1){}
+
+.button {
+width:600px;
+height:33px;
+border-radius:3px;
+border-width:0px;
+background:#1E90FF;
+cursor:pointer;
+outline:none;
+font-family:Microsoft YaHei;
+color:white;
+font-size:17px;
+}
+h1 {text-align:center}
+h3 {text-align:center; color:red}
+hr {color:black}
+body {background:white}
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.a-upload {
+    padding: 4px 10px;
+    height: 20px;
+    line-height: 20px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+
+.a-upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none
+}
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: white;
+            background-color: #9badd5;
+        }
+        body{
+            font-family: "Times New Roman";
+            font-size: 20px;
+        }
+        .head{
+            position: fixed;
+            height: 50px;
+            width: 100%;
+            background-color: #3296fd;
+            top:0;
+            left:0;
+        }
+        .head-bar{
+            width: 1016px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .logo{
+            margin-top: 10px;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            float: left;
+            padding-right: 20px;
+
+        }
+        .logo1{
+            display: inline-block;
+            width: 300px;
+            height: 50px;
+            float: right;
+            padding-right: 20px;
+
+        }
+        .b{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+
+        }
+        .bb{
+            float: left;
+            width: 100px;
+            height: 100%;
+            color: rgba(0, 0, 0, 0.99);
+            background-color: #bfd5ff;
+        }
+        .body-img{
+            width: 100%;
+            height: 250px;
+            padding-top: 24px;
+            border: 1px solid #3296fd;
+
+        }
+        .body-content1{
+            text-align: center;
+            font-family: "Microsoft YaHei UI";
+            font-size: 50px;
+            color: #3296fd;
+            padding-bottom: 80px;
+            padding-top: 70px;
+        }
+        .head-but{
+            float: right;
+            width: auto;
+            height: auto;
+            padding-top: 30px;
+            padding-right: 50px;
+            padding-bottom: 40px;
+
+        }
+        .but{
+            height: 30px;
+            background-color: #3296fd;
+            width: 100px;
+            padding-left: 0px;
+        }
+        .mm{
+            float: left;
+            padding-bottom: 20px;
+            padding-top: 10px;
+            font-size: 28px;
+             padding-left: 10px;
+        }
+        .fenx{
+            float: right;
+            padding-right: 50px;
+            margin-bottom: 30px;
+            padding-top: 40px;
+
+        }
+        .mm1{
+            float: left;
+            padding-bottom: 20px;
+            font-size: 28px;
+            padding-right: 50px;
+            padding-top: 30px;
+            padding-left: 10px;
+        }
+        .k{
+           background-color: #3296fd;
+            width:515px ;
+            height: 40px;
+            text-align: center;
+
+         }
+        .table-body{
+            border: 1px solid;
+            height: 400px;
+            width: 300px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+<div class="head">
+    <div class="head-bar">
+        {% load static %}
+        <img class="logo" src="{%static 'tick.ico'%}"/>
+ 
+        <a class="b" href="/game/one/">快速查询</a>
+        <a class="b" href="/game/two/">单个查询</a>
+        <a class="bb" href="/game/three/">批量查询</a>
+{#        <img class="logo1" src="{%static 'img/fritrow.png'%}"/>#}
+    </div>
+</div>
+
+<div class="body-all" >
+
+    <div class="body-img">
+    {% load static %}
+    <img class="body-img" src="{%static '网页.jpg'%}"/>
+    </div>
+
+    <div class="body-content1">
+        Welcome to our search
+    </div>
+    <div style="text-align:center">
+        <form action='/game/three/d'>
+           <input class="k" type="submit" value="下载结果" style="padding-left: 0px">
+    </form>
+    </div>
+
+
+<div style="text-align: center;padding-top:20px;padding-bottom: 100px">
+    <form action="/game/three/3">
+        <input name="lll" style="width: 400px;height: 30px;">
+        <button type="submit" style="padding-right:5px;width: 107px;height: 35px;background-color: #4f99eb">ID搜索结果</button>
+    </form>
+
+
+</div>
+    <div style="text-align: center;color: #1b6d85;font-size: 50px;padding-bottom: 50px">{{ out }}</div>
+
+
+
+<div style="float: right;padding-top: 10px;padding-right: 300px;padding-bottom: 50px">
+</div>
+
+</div>
+</div>
+
+
+
+
+<div style="padding-left: 20%;padding-right: 15%;">
+
+    <div style="padding-top: 100px;border:1px solid #1b6d85 ;padding-left: 60px;padding-right: 60px;padding-bottom: 50px">
+    <div style="padding-top: 20px"  style="background-color: #4f99eb">
+
+
+         <div>
+
+
+               <h2 style="text-align: center;">结果列表</h2>
+              <div class="table-head" >
+                    <table >
+                        </colgroup>
+                        <thead>
+                        <tr><th >序号</th><th >公司ID</th><th>结果</th></tr>
+                        </thead>
+                    </table>
+                </div>
+
+                <div   class="table-body" style="width: 100%">
+                    <table >
+                        <colgroup><col /><col /></colgroup>
+
+                        {% for i in jj %}
+                            <tr><td style="padding-left: 90px">{{i.num}}</td><td style="padding-left: 80px">{{i.ID}}</td><td style="padding-right: 30px;float: right" >{{i.name}}</td></tr>
+                        {% endfor %}
+
+                    </table>
+                </div>
+
+
+
+
+    </div>
+    </div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>
