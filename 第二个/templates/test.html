@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style >
+     *{
+            margin: 0;
+            padding: 0px;
+
+        }
+    body{
+        background-color: #2d16fc
+    }
+    .head{
+        text-align: center;
+        width: 100%;
+        height: 5%;
+        top:0;
+        left:0;
+      
+    }
+    a{
+        font-size: 50px;
+        font-family: "Microsoft Yi Baiti";
+        position: center;
+        color: #070919;
+        margin-top:0;
+        left:0;
+
+    }
+    .cen{
+        padding-top: 5%;
+        font-size: 50px;
+        width: 100%;
+        height: 100%;
+
+       
+    }
+    .b:hover{
+        border-color: red;
+
+    }
+    .b{
+        width: 80%;
+        height: 90px;
+        font-size: 50px;
+    }
+
+</style>
+</head>
+<body style="padding-top: 60px">
+{% include "head_.html" %}
+<div class="head">
+    <a>数据记录</a>
+</div>
+
+<div class="cen">
+<form action="/a">
+<table>
+<tr>
+<input type="text" name="name" class="b">name
+</tr>
+<tr>
+<input type="text" name="number" class="b">number
+</tr>
+<tr>
+<input type="text" name="address" class="b">address
+</tr>
+</table>
+<button type="submit" value="加入" style="width: 10%;height: 100%;">加入数据库</button>
+</form>
+
+
+</div>
+<h1>数据库现存</h1>
+<table style="width: 100%;height: 100px;background-color: white">
+    <tr>
+        <td>name</td>
+        <td>number</td>
+        <td>address</td>
+    </tr>
+    {% for i in f %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.number}}</td>
+        <td>{{i.address}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
